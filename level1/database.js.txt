@@ -1,0 +1,24 @@
+// database.js
+const mongoose = require('mongoose');
+
+mongoose.connect('mongodb://localhost/skybreakers', { useNewUrlParser: true, useUnifiedTopology: true });
+
+const db = mongoose.connection;
+
+db.on('error', (err) => {
+    console.error(err);
+});
+
+db.once('open', () => {
+    console.log('Connected to MongoDB');
+});
+
+const quizQuestionSchema = new mongoose.Schema({
+    question: String,
+    answers: [{ type: String }],
+    correctAnswer: Number
+});
+
+const QuizQuestion = mongoose.model('QuizQuestion', quizQuestionSchema);
+
+module.exports = { QuizQuestion };

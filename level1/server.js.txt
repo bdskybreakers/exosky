@@ -1,0 +1,22 @@
+// server.js
+const { QuizQuestion } = require('./database');
+
+// Route to handle quiz submissions
+app.post('/submit-quiz', (req, res) => {
+    const selectedAnswers = req.body.selectedAnswers;
+    QuizQuestion.find().then((questions) => {
+        const score = calculateScore(selectedAnswers, questions);
+        res.json({ score });
+    });
+});
+
+// Function to calculate the score
+function calculateScore(selectedAnswers, questions) {
+    let score = 0;
+    selectedAnswers.forEach((answer, index) => {
+        if (answer === questions[index].correctAnswer) {
+            score++;
+        }
+    });
+    return score;
+}

@@ -1,0 +1,47 @@
+// script.js
+const quizQuestions = [
+    {
+        question: "What is the definition of an exoplanet?",
+        answers: [
+            "A planet that orbits the Sun",
+            "A planet that orbits a star outside the Solar System",
+            "A planet that is no longer orbiting a star"
+        ],
+        correctAnswer: 1
+    },
+    {
+        question: "What is the most common type of exoplanet?",
+        answers: [
+            "Hot Jupiter",
+            "Super-Earth",
+            "Mini-Neptune"
+        ],
+        correctAnswer: 0
+    }
+];
+
+const quizForm = document.querySelector("#quiz form");
+const quizQuestionsContainer = document.querySelector("#quiz-questions");
+
+quizForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const selectedAnswers = [];
+    const radioButtons = quizForm.querySelectorAll("input[type='radio']");
+    radioButtons.forEach((radioButton) => {
+        if (radioButton.checked) {
+            selectedAnswers.push(radioButton.value);
+        }
+    });
+    const score = calculateScore(selectedAnswers);
+    alert(`Your score is ${score} out of ${quizQuestions.length}!`);
+});
+
+function calculateScore(selectedAnswers) {
+    let score = 0;
+    selectedAnswers.forEach((answer, index) => {
+        if (answer === quizQuestions[index].correctAnswer) {
+            score++;
+        }
+    });
+    return score;
+}

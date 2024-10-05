@@ -1,0 +1,45 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sky Breakers</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#nasa-videos">NASA Videos</a></li>
+                <li><a href="#3d-models">3D Models</a></li>
+                <li><a href="#quiz">Quiz</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="home">
+            <h1>Welcome to Sky Breakers!</h1>
+            <p>Learn about exoplanets and take a quiz to select an Earth-like exoplanet.</p>
+        </section>
+        <section id="nasa-videos">
+            <h1>NASA Videos</h1>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+        </section>
+        <section id="3d-models">
+            <h1>3D Models</h1>
+            <div id="3d-model-container">
+                <!-- 3D model will be rendered here -->
+            </div>
+        </section>
+        <section id="quiz">
+            <h1>Quiz</h1>
+            <form>
+                <!-- quiz questions will be rendered here -->
+            </form>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
